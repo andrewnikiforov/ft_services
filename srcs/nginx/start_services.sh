@@ -1,3 +1,3 @@
 #!/bin/sh
-telegraf
+#telegraf
 nginx -g 'daemon off;'

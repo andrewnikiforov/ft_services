@@ -3,7 +3,7 @@
 #echo "Hello $name, welcome to my FT_SERVICES"
 #echo -e "\033[33m""=======Let's set up the project!=======\n"
 #echo -e "\033[32m""=======At first start minikube in virtualbox. It start for same time. Keep calm and ask the questions=======\n""\033[37m"
-minikube start --vm-driver=virtualbox
+minikube start --vm-driver=virtualbox --disk-size 5000MB start
 #echo -e "\033[32m""Yeah! Minikube started!\n"
 #echo -ne "\033[31m""Press Enter if we can go to next part"
 #read y

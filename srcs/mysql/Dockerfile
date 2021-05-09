@@ -11,12 +11,13 @@ RUN apk add vim openrc mysql mysql-client libc6-compat supervisor
 	#				mkfifo /run/mysqld/mysqld.sock && \
 	#				touch /run/mysqld/mysqld.pid
 
+#telegraf
 RUN apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted
 COPY ./telegraf.conf	/etc/telegraf/
 
 
 COPY ./start_services.sh	/tmp/
-RUN chmod +x	/tmp/start_services.sh
+RUN chmod +x				/tmp/start_services.sh
 
 
 COPY ./supervisord.conf /etc/
