@@ -1,3 +1,4 @@
 #!/bin/sh
 #telegraf
-pure-ftpd -p 21000:21000 -P localhost
+#pure-ftpd -p 21000:21000 -P localhost
+supervisord -c /etc/supervisord.conf

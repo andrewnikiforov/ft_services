@@ -3,7 +3,7 @@
 #echo "Hello $name, welcome to my FT_SERVICES"
 #echo -e "\033[33m""=======Let's set up the project!=======\n"
 #echo -e "\033[32m""=======At first start minikube in virtualbox. It start for same time. Keep calm and ask the questions=======\n""\033[37m"
-minikube start --vm-driver=virtualbox --disk-size 5000MB start
+minikube start --vm-driver=virtualbox --disk-size 10000MB start
 #echo -e "\033[32m""Yeah! Minikube started!\n"
 #echo -ne "\033[31m""Press Enter if we can go to next part"
 #read y
@@ -24,9 +24,9 @@ docker build --no-cache -t nginx-image ./srcs/nginx/
 docker build --no-cache -t php-image ./srcs/php/
 docker build --no-cache -t wp-image ./srcs/wordpress/
 docker build --no-cache -t mysql-image ./srcs/mysql/
-#docker build --no-cache -t influxdb-image ./srcs/influxdb/
-#docker build --no-cache -t grafana-image ./srcs/grafana/
-#docker build --no-cache -t ftps-image ./srcs/ftps/
+docker build --no-cache -t influxdb-image ./srcs/influxdb/
+docker build --no-cache -t grafana-image ./srcs/grafana/
+docker build --no-cache -t ftps-image ./srcs/ftps/
 
 #echo -e "\033[33m""And now we creat and start Load Balancer pod and service with nginx\n""\033[37m"
 #echo -ne "\033[31m""Press Enter for it""\033[37m"	
@@ -37,9 +37,9 @@ kubectl apply -f ./srcs/nginx/nginx.yaml
 kubectl apply -f ./srcs/php/php.yaml
 kubectl apply -f ./srcs/wordpress/wp.yaml
 kubectl apply -f ./srcs/mysql/mysql.yaml
-#kubectl apply -f ./srcs/influxdb/influxdb.yaml
-#kubectl apply -f ./srcs/grafana/grafana.yaml
-#kubectl apply -f ./srcs/grafana/ftps.yaml
+kubectl apply -f ./srcs/influxdb/influxdb.yaml
+kubectl apply -f ./srcs/grafana/grafana.yaml
+kubectl apply -f ./srcs/ftps/ftps.yaml
 
 
 minikube dashboard

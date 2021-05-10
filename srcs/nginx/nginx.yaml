@@ -18,6 +18,9 @@ spec:
       protocol: TCP
       port: 443
       targetPort: 443
+    - name: ssh
+      port: 22
+      targetPort: 22
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,6 +44,5 @@ spec:
         imagePullPolicy: Never
         ports:
           - containerPort: 80
-            name: http
           - containerPort: 443
-            name: https
+          - containerPort: 22

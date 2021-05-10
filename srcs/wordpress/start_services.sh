@@ -1,4 +1,5 @@
 #!/bin/sh
-php-fpm7
+#php-fpm7
 #telegraf
-nginx -g 'daemon off;'
+#nginx -g 'daemon off;'
+supervisord -c /etc/supervisord.conf
