@@ -3,7 +3,7 @@
 #echo "Hello $name, welcome to my FT_SERVICES"
 #echo -e "\033[33m""=======Let's set up the project!=======\n"
 #echo -e "\033[32m""=======At first start minikube in virtualbox. It start for same time. Keep calm and ask the questions=======\n""\033[37m"
-minikube start --vm-driver=virtualbox --disk-size 10000MB start
+minikube start --vm-driver=virtualbox --cpus 3 --memory=3000
 #echo -e "\033[32m""Yeah! Minikube started!\n"
 #echo -ne "\033[31m""Press Enter if we can go to next part"
 #read y
@@ -31,15 +31,14 @@ docker build --no-cache -t ftps-image ./srcs/ftps/
 #echo -e "\033[33m""And now we creat and start Load Balancer pod and service with nginx\n""\033[37m"
 #echo -ne "\033[31m""Press Enter for it""\033[37m"	
 #read y
+#echo -e "\033[33m""At now we will build docker image for php.\n""\033[37m"
 kubectl apply -f ./srcs/metallb/configmap.yaml
 kubectl apply -f ./srcs/nginx/nginx.yaml
-#echo -e "\033[33m""At now we will build docker image for php.\n""\033[37m"
 kubectl apply -f ./srcs/php/php.yaml
 kubectl apply -f ./srcs/wordpress/wp.yaml
 kubectl apply -f ./srcs/mysql/mysql.yaml
 kubectl apply -f ./srcs/influxdb/influxdb.yaml
 kubectl apply -f ./srcs/grafana/grafana.yaml
 kubectl apply -f ./srcs/ftps/ftps.yaml
-
 
 minikube dashboard
