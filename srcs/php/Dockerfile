@@ -4,7 +4,7 @@ FROM alpine:3.12
 RUN apk update && apk upgrade
 
 #install apps
-RUN apk add nginx vim php7 php7-fpm php7-mbstring php7-session php7-json php7-mysqli php7-gd php7-xml php7-curl php7-iconv supervisor
+RUN apk add nginx vim php7 php7-fpm php7-mbstring php7-session php7-json php7-mysqli php7-gd php7-xml php7-curl php7-iconv supervisor openssl
 
 #install phpmyadmin
 ADD https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-english.tar.gz /var/www
@@ -27,6 +27,12 @@ EXPOSE 5000
 #make dir for pid ???
 RUN mkdir -p	/run/nginx
 RUN mkdir -p	/run/php
+
+
+
+#openssl
+RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Moscow/L=Moscow/O=42/OU=21moscow/CN=omillan" -newkey rsa:2048 -keyout /etc/ssl/private/php.key -out /etc/ssl/certs/php.crt
+
 
 #add and start services
 COPY ./start_services.sh	/

@@ -9,6 +9,10 @@ spec:
     app: ftps
   type: LoadBalancer
   ports:
+    - name: twenty
+      protocol: TCP
+      port: 20
+      targetPort: 20
     - name: ochko
       protocol: TCP
       port: 21
@@ -39,5 +43,6 @@ spec:
         image: ftps-image
         imagePullPolicy: Never
         ports:
+          - containerPort: 20
           - containerPort: 21
           - containerPort: 21000

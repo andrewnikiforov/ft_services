@@ -1,18 +1,18 @@
 {
 	"annotations": {
-	  "list": [
+	"list": [
 		{
-		  "builtIn": 1,
-		  "datasource": "-- Grafana --",
-		  "enable": true,
-		  "hide": true,
-		  "iconColor": "rgba(0, 211, 255, 1)",
-		  "limit": 100,
-		  "name": "Annotations & Alerts",
-		  "showIn": 0,
-		  "type": "dashboard"
+		"builtIn": 1,
+		"datasource": "-- Grafana --",
+		"enable": true,
+		"hide": true,
+		"iconColor": "rgba(0, 211, 255, 1)",
+		"limit": 100,
+		"name": "Annotations & Alerts",
+		"showIn": 0,
+		"type": "dashboard"
 		}
-	  ]
+	]
 	},
 	"editable": true,
 	"gnetId": null,
@@ -21,11 +21,11 @@
 	"iteration": 1612509204115,
 	"links": [],
 	"panels": [
-	  {
+	{
 		"alert": {
-		  "conditions": [
+		"conditions": [
 			{
-			  "evaluator": {
+			"evaluator": {
 				"params": [
 				  30
 				],

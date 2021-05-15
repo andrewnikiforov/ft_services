@@ -20,4 +20,6 @@ COPY ./my.cnf 				/etc/
 
 EXPOSE 3306
 
+RUN mkdir -p	/run/mysql
+
 CMD /start_services.sh

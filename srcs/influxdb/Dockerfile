@@ -1,18 +1,20 @@
 FROM alpine:3.12
 
-# Installing required packages.
+#update and upgrade alpine
+RUN apk update && apk upgrade
 
-RUN apk update
-RUN apk add supervisor influxdb libc6-compat
+#add apps
+RUN apk add supervisor\
+			influxdb\
+			libc6-compat
 
-#-----------------------------
-
-# Installing telegraf
-
-ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz /
-RUN tar -xf telegraf-1.17.0_linux_amd64.tar.gz --strip-components=2 -C /
-RUN rm telegraf-1.17.0_linux_amd64.tar.gz
-COPY ./telegraf.conf /etc/telegraf/
+#telegraf
+RUN apk add telegraf --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted
+COPY ./telegraf.conf		/etc/telegraf/
+# ADD https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz /
+# RUN tar -xf telegraf-1.17.0_linux_amd64.tar.gz --strip-components=2 -C /
+# RUN rm telegraf-1.17.0_linux_amd64.tar.gz
+# COPY ./telegraf.conf /etc/telegraf/
 
 #-----------------------------
 
